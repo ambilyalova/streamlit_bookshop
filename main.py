@@ -1,7 +1,6 @@
 # python -m streamlit run strmlit.py
 import streamlit as st
 
-# Список книг
 books = [
     {"Название": "Вишневый сад", "Автор": "Чехов Антон Павлович", "Жанр": "Комедия", "Магазин": "Камергерский переулок"},
     {"Название": "Спать хочется", "Автор": "Чехов Антон Павлович", "Жанр": "Комедия", "Магазин": "Камергерский переулок"},
@@ -11,34 +10,28 @@ books = [
 ]
 
 
-# Фильтрация книг по автору
 def filter_books_by_author(books, author):
     return [book for book in books if book["Автор"] == author]
 
 
-# Фильтрация книг по жанру
 def filter_books_by_genre(books, genre):
     return [book for book in books if book["Жанр"] == genre]
 
 
-# Фильтрация книг по магазину
 def filter_books_by_store(books, store):
     return [book for book in books if book["Магазин"] == store]
 
 
-# Добавление книги в корзину
 def add_to_cart(book):
     cart = st.session_state.get("cart", [])
     cart.append(book)
     st.session_state["cart"] = cart
 
 
-# Получение содержимого корзины
 def get_cart_items():
     return st.session_state.get("cart", [])
 
 
-# Очистка корзины
 def clear_cart():
     st.session_state["cart"] = []
 
